@@ -1,0 +1,23 @@
+---
+-   name: install docker
+    apt: pkg=docker.io state=installed
+
+-   name: Check Docker existence
+    stat: path=/etc/default/docker
+    register: docker_default_file
+  
+-   name: Configuring DOCKER_OPTS for DOCKER HOST - key requirement for Shipyard server
+    when: ansible_distribution == 'Ubuntu' and docker_default_file.exists
+    shell: echo ". /etc/default/docker.ext" >> /etc/default/docker.io
+    
+-   name: Configuring DOCKER_OPTS for DOCKER HOST - key requirement for Shipyard server
+    when: ansible_distribution == 'Ubuntu' and docker_default_file.exists
+    template: src=docker.ext.j2 dest=/etc/default/docker.ext
+    register: docker_host
+    notify: restart docker
+
+-   name: wait for docker on private ip port 4243
+    wait_for: port=4243 delay=15 host={{ ansible_default_ipv4.address }}
+    when: docker_host.changed
+
+-   debug: msg="docker is up and listening on port 4243"

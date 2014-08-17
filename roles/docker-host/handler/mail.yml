@@ -1,0 +1,5 @@
+---
+
+-   name: restart docker
+    service: name=docker.io state=restarted
+    when: docker_host.changed
