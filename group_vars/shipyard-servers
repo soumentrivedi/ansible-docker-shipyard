@@ -1,0 +1,4 @@
+shipyard_server_image_name: shipyard-server/master
+docker_custom_opts: 
+	-	'-H tcp://0.0.0.0:4243'
+	-	'-H unix:///var/run/docker.sock'
