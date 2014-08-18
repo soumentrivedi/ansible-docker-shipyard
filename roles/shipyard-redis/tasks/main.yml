@@ -29,6 +29,6 @@
     template: src="{{ shipyard_redis_service }}.default.j2" dest="/etc/default/{{ shipyard_redis_service }}"
 
 -   name: "write {{ shipyard_redis_service }} as init script in /etc/init/"
-    template: src="{{ shipyard_redis_service }}.j2" dest="/etc/init.d/{{ shipyard_redis_service }}" mode=0744
+    template: src="{{ shipyard_redis_service }}.j2" dest="/etc/init.d/{{ shipyard_redis_service }}" mode=0755
     notify:
     - restart {{ shipyard_redis_service }}
