@@ -1,0 +1,15 @@
+# {{ ansible_managed }}
+#!/bin/bash
+# /usr/bin/{{ shipyard_base_service }}-shutdown
+# Soumen Trivedi <soumen.trivedi@gmail.com>
+#
+
+SU=/bin/su
+
+[ -r /etc/default/$NAME ] && . /etc/default/$NAME
+  
+for i in $SHIPYARD_SERVICES
+do
+	$SU -l root --shell=/bin/bash -c "/etc/init.d/$i stop" > $SHIPYARD_LOG 2>&1 || return 2
+done
+exit 0

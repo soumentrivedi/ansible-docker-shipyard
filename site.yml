@@ -1,18 +1,14 @@
 ---
-# This playbook deploys a shipyard server & agents
+# This playbook deploys a shipyard server
 
 - hosts: shipyard-servers
   user: ansible
   sudo: yes
-  roles:
-    - common
-    - docker-host
-    - shipyard-server
-
-# TODO
-#- hosts: shipyard-agents
-#  user: ansible
-#  sudo: yes
-#  roles:
-#    - common
-#    - shipyard-agent
+  
+  roles:    
+    - shipyard-base
+    - shipyard-redis
+    - shipyard-router
+    - shipyard-lb
+    - shipyard-db
+    - shipyard-www
