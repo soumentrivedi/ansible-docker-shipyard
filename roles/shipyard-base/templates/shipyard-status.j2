@@ -6,7 +6,7 @@
 
 SU=/bin/su
 
-[ -r /etc/default/$NAME ] && . /etc/default/$NAME
+[ -r /etc/default/{{ shipyard_base_service }} ] && . /etc/default/{{ shipyard_base_service }}
   
 for i in $SHIPYARD_SERVICES
 do
