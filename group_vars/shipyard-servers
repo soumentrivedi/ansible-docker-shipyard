@@ -12,7 +12,8 @@ ubuntu_packages:
     -   libevent-dev
     -   python-openssl
     
-http_proxy: http://www-proxy.ericsson.se:8080
+# http_proxy: http://<username>:<password>@<proxy_host>:<proxy_port>
+http_proxy:
 enable_ssh: true
 project_root: /opt
 
