@@ -1,23 +1,23 @@
 # {{ ansible_managed }}
 #!/bin/bash
-# /etc/init.d/{{ shipyard_www_service }}
-# debian-compatible {{ shipyard_www_service }} startup script.
+# /etc/init.d/{{ shipyard_router_service }}
+# debian-compatible {{ shipyard_router_service }} startup script.
 # Soumen Trivedi <soumen.trivedi@gmail.com>
 #
 ### BEGIN INIT INFO
-# Provides:          {{ shipyard_www_service }}
+# Provides:          {{ shipyard_router_service }}
 # Required-Start:    $remote_fs $syslog $network
 # Required-Stop:     $remote_fs $syslog $network
 # Default-Start:     2 3 4 5
 # Default-Stop:      0 1 6
-# Short-Description: Start {{ shipyard_www_service }} at boot time
-# Description:       Controls the {{ shipyard_www_service }} docker instances.
+# Short-Description: Start {{ shipyard_router_service }} at boot time
+# Description:       Controls the {{ shipyard_router_service }} docker instances.
 ### END INIT INFO
 
 PATH=/bin:/usr/bin:/sbin:/usr/sbin
 
-DESC="{{ shipyard_www_service }} Server"
-NAME={{ shipyard_www_service }}
+DESC="{{ shipyard_router_service }} Server"
+NAME={{ shipyard_router_service }}
 SCRIPTNAME=/etc/init.d/$NAME
 
 [ -r /etc/default/$NAME ] && . /etc/default/$NAME
@@ -53,11 +53,11 @@ fi
 #
 do_start()
 {    
-    $SU -l ${{ shipyard_www_service }}_USER --shell=/bin/bash -c "$DOCKER start $SHIPYARD_ARGS" > $SHIPYARD_LOG 2>&1 || return 2
+    $SU -l ${{ shipyard_router_service }}_USER --shell=/bin/bash -c "$DOCKER start $SHIPYARD_ARGS" > $SHIPYARD_LOG 2>&1 || return 2
 }
 
 #
-# Get status of {{ shipyard_www_service }} containers using docker ps <CONTAINER_NAME>
+# Get status of {{ shipyard_router_service }} containers using docker ps <CONTAINER_NAME>
 # 
 get_status() 
 {

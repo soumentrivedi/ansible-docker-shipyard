@@ -9,3 +9,5 @@ NAME={{ shipyard_base_service }}
 SHIPYARD_LOG=/var/log/{{ shipyard_base_service }}.log
 
 SHIPYARD_SERVICES="{% for service in shipyard_services %} {{ service }}{% endfor %}"
+
+STATUS_ARGS="ps -a"

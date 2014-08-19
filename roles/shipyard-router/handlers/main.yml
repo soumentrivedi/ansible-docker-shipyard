@@ -1,4 +1,4 @@
 ---
 -   name: restart {{ shipyard_router_service }}
-    service:  name={{ shipyard_router_service }} state=restarted enabled=yes
+    service:  name={{ shipyard_router_service }} state=restarted enabled=true
     
