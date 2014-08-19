@@ -12,3 +12,10 @@
     - shipyard-lb
     - shipyard-db
     - shipyard-www
+    
+- hosts: shipyard-agents
+  user: ansible
+  sudo: yes
+  
+  roles:    
+    - shipyard-agent

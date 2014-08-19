@@ -20,7 +20,7 @@ project_root: /opt
 # Environment Variables passed into Docker Containers
 redis_host: "{{ inventory_hostname }}"
 redis_port: 6379
-http_lb_port: 8180
+http_lb_port: 80
 https_lb_port: 4431
 admin_pass: "password"
 db_pass: "password"

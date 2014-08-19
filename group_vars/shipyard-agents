@@ -1,0 +1,28 @@
+host: "{{inventory_hostname}}"
+
+common_packages:
+    -   git
+    -   python-pip
+    -   gcc
+
+ubuntu_packages:
+    -   python-selinux
+    -   python-dev
+    -   libevent-2.0-5
+    -   libevent-dev
+    -   python-openssl
+    
+# http_proxy: http://<username>:<password>@<proxy_host>:<proxy_port>
+http_proxy:
+enable_ssh: true
+project_root: /opt
+
+# Environment Variables passed into Docker Containers
+agent_host_port: 4500
+
+# Docker Image Name
+shipyard_agent_image: shipyard/agent
+
+shipyard_agent_service: shipyard-agent
+
+shipyard_server_url: http://137.58.70.157:8000

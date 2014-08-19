@@ -11,7 +11,7 @@
       image="{{ shipyard_www_image }}"
       ports=8000:8000       
       name="{{ shipyard_www_service }}"
-      env="REDIS_HOST={{ redis_host }},REDIS_PORT= {{ redis_port }},ADMIN_PASS={{ admin_pass }}"
+      env="REDIS_HOST={{ redis_host }},REDIS_PORT={{ redis_port }},ADMIN_PASS={{ admin_pass }}"
       links={{ shipyard_db_service }}:db 
       command="/app/.docker/run.sh app master-worker" 
       state=running
