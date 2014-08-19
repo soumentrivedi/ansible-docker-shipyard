@@ -30,5 +30,4 @@
 
 -   name: "write {{ shipyard_db_service }} as init script in /etc/init.d/"
     template: src="{{ shipyard_db_service }}.j2" dest="/etc/init.d/{{ shipyard_db_service }}" mode=0755 
-    notify:
-    - restart {{ shipyard_db_service }}
+    notify: restart {{ shipyard_db_service }}

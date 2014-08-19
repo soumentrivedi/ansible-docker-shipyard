@@ -32,5 +32,4 @@
 
 -   name: "write {{ shipyard_www_service }} as init script in /etc/init.d/"
     template: src="{{ shipyard_www_service }}.j2" dest="/etc/init.d/{{ shipyard_www_service }}" mode="0755" 
-    notify:
-    - restart {{ shipyard_www_service }}
+    notify: restart {{ shipyard_www_service }}
